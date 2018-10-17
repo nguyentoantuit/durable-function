@@ -37,7 +37,7 @@ namespace VSSample.DurablePatterns
 
         [FunctionName("Chaining_SendEmail")]
         public static async Task<Email> Run(
-            [OrchestrationTrigger] DurableOrchestrationContextBase context)
+            [OrchestrationTrigger] DurableOrchestrationContext context)
         {
             var param = context.GetInput<SendEmailParameter>();
             var dossier = await context.CallActivityAsync<Dossier>("GetDossier", param.DossierId);
